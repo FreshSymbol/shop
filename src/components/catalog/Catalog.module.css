@@ -1,0 +1,9 @@
+.catalog {
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  gap: 40px;
+}

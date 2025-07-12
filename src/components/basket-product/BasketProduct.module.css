@@ -1,0 +1,30 @@
+.product {
+  min-width: 100%;
+  font-size: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.title {
+  font-size: 0.7em;
+  font-weight: 500;
+}
+
+.price {
+  margin-left: auto;
+  font-size: 0.7em;
+}
+
+.delete {
+  padding: 3px 10px;
+  font-size: 0.7em;
+  font-weight: 500;
+  transition: 0.2s ease-in;
+}
+
+.delete:hover {
+  background-color: black;
+  color: white;
+}

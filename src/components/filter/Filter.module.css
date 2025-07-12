@@ -1,0 +1,77 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.title {
+  font-size: 2.3em;
+  margin-bottom: 20px;
+  font-weight: medium;
+}
+
+.select {
+  font-size: 2em;
+  padding: 10px 15px;
+  background-color: transparent;
+  border-radius: 10px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.label {
+  padding: 10px 20px;
+  font-size: 2em;
+  color: #ccc;
+  border-radius: 30px;
+}
+
+.label:hover {
+  cursor: pointer;
+  border-bottom: 1px solid;
+}
+
+@media (width<=1440px) {
+  .form {
+    gap: 40px;
+  }
+
+  .list {
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+  }
+
+  .select {
+    font-size: 0.8em;
+    padding: 10px 15px;
+  }
+
+  .label {
+    font-size: 1em;
+  }
+}
