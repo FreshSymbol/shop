@@ -1,4 +1,4 @@
-import { useMemo, type ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import styles from './Pagination.module.css';
 import {
   decrementPage,
@@ -6,25 +6,18 @@ import {
   incrementPage,
   setPage,
 } from '../../store/slices/filterSlice';
-import { useDispatch, useSelector } from '../../store/store';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 import { getTotalCount } from '../../store/slices/catalogSlice';
 import { showPagination } from '../../utils';
 
 export const Pagination = (): ReactElement => {
-  const dispatch = useDispatch();
-  const { page, limit } = useSelector(getFilterParams);
-  const countProduct = useSelector(getTotalCount)!;
+  const dispatch = useAppDispatch();
+  const { page, limit } = useAppSelector(getFilterParams);
+  const countProduct = useAppSelector(getTotalCount)!;
 
-  const lastPage = useMemo(() => {
-    return Math.ceil(+countProduct / +limit);
-  }, [limit, countProduct]);
+  const lastPage: number = Math.ceil(+countProduct / +limit);
 
-  console.log(lastPage);
-
-  const pages = useMemo(
-    () => showPagination(page, lastPage, 3),
-    [page, lastPage]
-  );
+  const pages: number[] = showPagination(page, lastPage, 3);
 
   const switchNextPageHandler = () => {
     dispatch(incrementPage());

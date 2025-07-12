@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { TProductBasket } from '../../utils/types';
 import styles from './BasketProduct.module.css';
-import { useDispatch } from '../../store/store';
+import { useAppDispatch } from '../../store/store';
 import { removeProduct } from '../../store/slices/basketSlice';
 import { memo } from 'react';
 
@@ -9,7 +9,7 @@ type BasketProductProps = TProductBasket;
 
 export const BasketProduct = memo(
   ({ id, title, price }: BasketProductProps): ReactElement => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const removeProductToBasketHandler = () =>
       dispatch(removeProduct({ id, title, price }));

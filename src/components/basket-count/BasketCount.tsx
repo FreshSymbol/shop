@@ -1,12 +1,11 @@
 import type { ReactElement } from 'react';
-import { useDispatch } from '../../store/store';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 import { getTotalCount, openBasket } from '../../store/slices/basketSlice';
-import { useSelector } from 'react-redux';
 import styles from './BasketCount.module.css';
 
 export const BasketCount = (): ReactElement => {
-  const count = useSelector(getTotalCount);
-  const dispatch = useDispatch();
+  const count = useAppSelector(getTotalCount);
+  const dispatch = useAppDispatch();
 
   const clickHandler = () => {
     dispatch(openBasket());

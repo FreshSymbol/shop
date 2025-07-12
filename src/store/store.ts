@@ -1,8 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {
-  useDispatch as dispatchHook,
-  useSelector as selectorHook,
-} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import catalog from './slices/catalogSlice';
 import basket from './slices/basketSlice';
 import filter from './slices/filterSlice';
@@ -18,5 +15,5 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-export const useDispatch = dispatchHook.withTypes<AppDispatch>();
-export const useSelector = selectorHook.withTypes<RootState>();
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
+export const useAppSelector = useSelector.withTypes<RootState>();

@@ -1,22 +1,22 @@
 import { useEffect, type ReactElement } from 'react';
-import { useSelector } from 'react-redux';
 import {
   getIsLoading,
   getProductsCatalog,
 } from '../../store/slices/catalogSlice';
-import { useDispatch } from '../../store/store';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 import { productsApi } from '../../store/slices/actions';
 import styles from './Catalog.module.css';
 import { getFilterParams } from '../../store/slices/filterSlice';
 import { Preloader } from '../preloader';
 import { Product } from '../product';
 import { getQuery } from '../../utils';
+import type { TProduct } from '../../utils/types';
 
 export const Catalog = (): ReactElement => {
-  const dispatch = useDispatch();
-  const products = useSelector(getProductsCatalog);
-  const isLoading = useSelector(getIsLoading);
-  const filterParams = useSelector(getFilterParams);
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(getProductsCatalog);
+  const isLoading = useAppSelector(getIsLoading);
+  const filterParams = useAppSelector(getFilterParams);
 
   useEffect(() => {
     dispatch(productsApi(filterParams));
@@ -35,7 +35,7 @@ export const Catalog = (): ReactElement => {
         <Preloader />
       ) : (
         <ul className={styles.catalog}>
-          {products.map((product) => (
+          {products.map((product: TProduct) => (
             <Product key={product.id} {...product} />
           ))}
         </ul>

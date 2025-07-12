@@ -2,12 +2,13 @@ import { memo, type ReactElement } from 'react';
 import styles from './Filter.module.css';
 import { setFilterParams } from '../../store/slices/filterSlice';
 import { getFilterParams } from '../../store/slices/filterSlice';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { CATEGORY_CONTENT } from '../../utils/constants';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 
 export const Filter = memo((): ReactElement => {
-  const categoryContent = ['еда', 'одежда', 'электроника'];
-  const filterParams = useSelector(getFilterParams);
-  const dispatch = useDispatch();
+  const filterParams = useAppSelector(getFilterParams);
+  const dispatch = useAppDispatch();
 
   const changeParamFilterHandler = (
     evt: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -35,7 +36,7 @@ export const Filter = memo((): ReactElement => {
               Все
             </label>
           </li>
-          {categoryContent.map((category, index) => (
+          {CATEGORY_CONTENT.map((category, index) => (
             <li key={index}>
               <input
                 className={styles.radio}

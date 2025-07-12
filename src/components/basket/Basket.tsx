@@ -7,15 +7,15 @@ import {
   getProductBasket,
   closeBasket,
 } from '../../store/slices/basketSlice';
-import { useDispatch, useSelector } from '../../store/store';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 import { BasketList } from '../basket-list';
 
 export const Basket = (): ReactElement => {
-  const isActive = useSelector(getIsActive);
-  const totalPrice = useSelector(getTotalPrice);
-  const products = useSelector(getProductBasket);
+  const isActive = useAppSelector(getIsActive);
+  const totalPrice = useAppSelector(getTotalPrice);
+  const products = useAppSelector(getProductBasket);
   const refBasket = useRef<HTMLElement | null>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const clickClearHandler = () => {
     dispatch(clearBasket());

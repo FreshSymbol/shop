@@ -9,14 +9,17 @@ const options = {
   },
 };
 
-const checkResponse = <T>(res: Response): Promise<T> =>
-  res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+const checkResponse = async <T>(res: Response): Promise<T> => {
+  if (res.ok) return await res.json();
+  else {
+    const err = await res.json();
+    return Promise.reject(err);
+  }
+};
 
-export const getProducts = (formData: TFilterParams) => {
-  return fetch(`${BASE_URL + getQuery(formData)}`, options).then((res) => {
-    const totalCount = res.headers.get('x-total-count');
-    return checkResponse<TProduct[]>(res).then((products) => {
-      return { products, totalCount };
-    });
-  });
+export const getProducts = async (filterParams: TFilterParams) => {
+  const res = await fetch(`${BASE_URL + getQuery(filterParams)}`, options);
+  const totalCount: string | null = res.headers.get('x-total-count');
+  const products: TProduct[] = await checkResponse(res);
+  return { totalCount, products };
 };

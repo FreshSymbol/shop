@@ -1,14 +1,14 @@
 import { memo, type ReactElement } from 'react';
 import type { TProduct } from '../../utils/types';
 import styles from './Product.module.css';
-import { useDispatch } from '../../store/store';
+import { useAppDispatch } from '../../store/store';
 import { addProduct } from '../../store/slices/basketSlice';
 
 type ProductProps = TProduct;
 
 export const Product = memo(
   ({ id, title, description, price, category }: ProductProps): ReactElement => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const addProductToBasketHandler = (
       evt: React.MouseEvent<HTMLButtonElement>
     ) => {

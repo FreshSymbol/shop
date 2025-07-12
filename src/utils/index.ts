@@ -1,15 +1,14 @@
 import type { TFilterParams } from './types';
 
-export const getQuery = ({
-  category,
-  page,
-  limit,
-  sort,
-  order,
-}: TFilterParams): string =>
-  `products?${category ? `category=${category}` : ''}&_page=${page}${
-    limit ? `&_limit=${limit}` : ''
-  }${sort ? `&_sort=${sort}` : ''}${order ? `&_order=${order}` : ''}`.trim();
+export const getQuery = (filterParams: TFilterParams): string => {
+  const query = Object.entries(filterParams)
+    .filter(([_, value]) => value !== '' && value !== undefined)
+    .map(([key, value]) => {
+      if (value) return `_${key}=${String(value)}`;
+    });
+
+  return `products?${query.join('&')}`;
+};
 
 export const showPagination = (
   currentPage: number,
