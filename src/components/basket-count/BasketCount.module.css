@@ -1,0 +1,21 @@
+.basket {
+  padding: 15px 30px;
+  font-size: 2em;
+  margin-left: auto;
+  border-color: white;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+@media (width<=1440px) {
+  .basket {
+    padding: 5px 10px;
+    font-size: 1.2em;
+  }
+}
+
+@media (width<=768px) {
+  .basket {
+    margin: auto;
+  }
+}

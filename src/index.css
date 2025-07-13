@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-width: 375px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+fieldset {
+  border: none;
+}
+
+button {
+  padding: 5px 7px;
+  background-color: transparent;
+  color: inherit;
+  border-radius: 15px;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  outline: 1px solid white;
+}
+
+button:focus-visible {
+  outline: 1px solid white;
+}
+
+input[type='radio']:checked + label {
+  color: white;
+  border: 1px solid white;
+}

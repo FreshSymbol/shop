@@ -1,0 +1,86 @@
+.basket {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: 99%;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  background-color: whitesmoke;
+  border-top-left-radius: 5em;
+  border-bottom-left-radius: 5em;
+  border: 1px solid #ccc;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  overflow-y: scroll;
+  text-align: center;
+  transition: width 0.2s ease-out;
+  gap: 50px;
+  font-size: 2em;
+}
+
+.title {
+  font-size: 2em;
+}
+
+.total {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.active {
+  z-index: 1;
+  padding: 4% 2em 2em;
+  width: 30%;
+  right: 0;
+}
+
+.clear {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  transition: 0.2s ease-in;
+}
+
+.clear:hover {
+  color: white;
+  background-color: black;
+}
+
+.empty {
+  margin-top: 30%;
+  text-align: center;
+  font-size: 2em;
+}
+
+@media (width<=1440px) {
+  .basket {
+    font-size: 1em;
+  }
+}
+
+@media (width<=1440px) {
+  .basket {
+    font-size: 1em;
+  }
+}
+
+@media (width<=1024px) {
+  .basket {
+    font-size: 0.8em;
+  }
+}
+
+@media (width<=768px) {
+  .active {
+    width: 45%;
+  }
+}
+@media (width<=425px) {
+  .active {
+    width: 70%;
+  }
+}

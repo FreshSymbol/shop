@@ -1,0 +1,18 @@
+.panel {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  align-content: baseline;
+  padding: 3em 4em;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+}
+
+@media (width<=1440px) {
+  .panel {
+    padding: 1.5em 2em;
+  }
+}
